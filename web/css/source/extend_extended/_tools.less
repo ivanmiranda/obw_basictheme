@@ -1,0 +1,100 @@
+//**
+//** Pengo
+//**
+//** NOTICE OF LICENSE
+//**
+//** This source file is subject to the Pengo.com license that is
+//** available through the world-wide-web at this URL:
+//** http://www.pengostores.com/
+//**
+//** DISCLAIMER
+//**
+//**
+//** @package     Pengo_Basetheme
+//** @author      Pengo
+//** @license     http://www.pengostores.com/
+//
+//  *********************************************
+//
+//  Extend
+//  Mixins and fuctions
+//  _____________________________________________
+
+.lib-border-radius(...) {
+  -webkit-border-radius: @arguments;
+     -moz-border-radius: @arguments;
+          border-radius: @arguments;
+}
+.lib-box-shadow(...) {
+  -webkit-box-shadow: @arguments; // Android 2.3+, iOS 4.0.2-4.2, Safari 3-4
+     -moz-box-shadow: @arguments;
+          box-shadow: @arguments; // Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+
+}
+.lib-text-shadow(...) {
+  -webkit-text-shadow: @arguments;
+     -moz-text-shadow: @arguments;
+          text-shadow: @arguments;  // Chrome, Firefox 3.5+, IE 10+, Opera 9+, Safari 1+
+}
+.lib-transform(...) {
+  -webkit-transform: @arguments;  // Chrome, Opera 15+, Safari 3.1+ 
+     -moz-transform: @arguments;  // Firefox
+       -o-transform: @arguments;  // Opera
+      -ms-transform: @arguments;  // IE 9 
+          transform: @arguments;  // Firefox 16+, IE 10+, Opera 
+}
+.lib-animation(...) {
+  -webkit-animation: @arguments; // Chrome, Opera 15+, Safari 5+
+          -ms-animation: @arguments; // IE
+          animation: @arguments; // Chrome, Firefox 16+, IE 10+, Opera
+}
+.lib-opacity (...) {
+  -webkit-opacity: @arguments;  // Chrome, Opera 15+, Safari 5+
+     -moz-opacity: @arguments;  // Chrome, Firefox 16+, IE 10+, Opera
+          opacity: @arguments;
+}
+.lib-translate(@x:0, @y:0) {
+  .lib-transform(translate(@x, @y));
+}
+.lib-rotate(...) {
+  .lib-transform(rotate(@arguments));
+}
+.lib-scale(...) {
+  .lib-transform(scale(@arguments));
+}
+.lib-transition(...) {
+  -webkit-transition: @arguments; // Chrome, Opera 15+, Safari 5+
+     -moz-transition: @arguments;
+          transition: @arguments; // Chrome, Firefox 16+, IE 10+, Opera
+}
+.lib-keyframes(@name; @arguments) {
+  @-moz-keyframes @name { @arguments(); }
+  @-webkit-keyframes @name { @arguments(); } // Chrome, Opera 15+, Safari 5+
+  @keyframes @name { @arguments(); } // Chrome, Firefox 16+, IE 10+, Opera
+}
+
+.lib-call-to-action(){
+    .lib-css(position, relative);
+    .lib-css(background, @bkg-color-calltoaction1st);
+    .lib-css(color, @color-text-calltoaction);
+    > * {
+        z-index: 1;
+    }
+    &:hover,
+    &:active {
+        .lib-css(background, @bkg-color-calltoaction1st);
+        .lib-css(color, @color-white);
+        &:after {
+            width: 100%;
+        }
+    }
+    &:after {
+        content:'';
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 0px;
+        height: 100%;
+        background: @color-black;
+        transition: all .3s ease;
+    }
+}

@@ -1,0 +1,50 @@
+//**
+//** Pengo
+//**
+//** NOTICE OF LICENSE
+//**
+//** This source file is subject to the Pengo.com license that is
+//** available through the world-wide-web at this URL:
+//** http://www.pengostores.com/
+//**
+//** DISCLAIMER
+//**
+//**
+//** @package     Pengo_Basetheme
+//** @author      Pengo
+//** @license     http://www.pengostores.com/
+//
+//  *********************************************
+//
+//  Styles a the elements of structure
+//  
+//  _____________________________________________
+@navigation-desktop-level0-item__line-height-sticky: 30px;
+& when (@media-common = true) {
+    body.nav-sticky {
+        &:not(.sales-print-view) {
+            .page-header {
+                position: static;
+                top: -250px;
+                .lib-transition(all ease-in-out .5s);
+            }
+        }
+        &.nav-up {
+            padding-top: 250px;
+            .page-header {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                z-index: 4;
+            }
+        }
+        .navigation {
+            .level0 {
+                > .level-top {
+                    line-height: @navigation-desktop-level0-item__line-height-sticky;
+                }
+            }
+        }
+    }
+}

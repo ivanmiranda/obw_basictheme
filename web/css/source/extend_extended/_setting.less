@@ -1,0 +1,39 @@
+//**
+//** Pengo
+//**
+//** NOTICE OF LICENSE
+//**
+//** This source file is subject to the Pengo.com license that is
+//** available through the world-wide-web at this URL:
+//** http://www.pengostores.com/
+//**
+//** DISCLAIMER
+//**
+//**
+//** @package     Pengo_Basetheme
+//** @author      Pengo
+//** @license     http://www.pengostores.com/
+//
+//  *********************************************
+//
+//  Setting general
+//  
+//  _____________________________________________
+& when (@media-common = true) {
+	.block-title {
+        &:extend(.abs-login-block-title all);
+        .lib-font-size(@font-size__m);
+    }
+    .field.note,
+    .note {
+    	.lib-font-size(@font-size__base);
+    	.lib-css(margin, 0 0 @indent__s);
+    }
+    .page-title {
+    	.lib-font-size(@font-size__xl);
+    	.lib-css(margin, @indent__s 0 @indent__m);
+    }
+    .btn-call-to-action {
+        .lib-call-to-action();
+    }
+}
