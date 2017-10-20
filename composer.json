@@ -1,0 +1,25 @@
+{
+    "name": "obw/basictheme",
+    "description": "Objectwave's default frontend theme",
+    "require": {
+        "php": "~5.5.0|~5.6.0|~7.0.0"
+    },
+    "type": "magento2-theme",
+    "version": "0.0.1",
+    "license": [
+        "CC-BY-NC-ND"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    },
+    "authors": [
+        {
+          "name": "Ivan Miranda",
+          "email": "pa.ivan.miranda@gmail.com",
+          "homepage": "http://ivanmiranda.me",
+          "role": "Leader"
+        }
+    ]
+}

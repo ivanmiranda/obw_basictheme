@@ -1,0 +1,151 @@
+// /**
+//  * Copyright © 2016 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Responsive
+//  _____________________________________________
+
+//
+//  Media variables, that can be used for splitting styles into several files
+//  ---------------------------------------------
+
+@media-common: true; // Sets whether to output common styles (true|false)
+@media-target: 'all'; // Sets target device for styles output (all|desktop|mobile)
+
+//
+//  Media width mixin used to group styles output based on media queries
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+}
+.media-width-range(@extremum-min, @extremum-max, @break-min, @break-max) when (@extremum-min = 'min') and (@extremum-max = 'max') and (@break-min = @screen__s) and (@break-max = @screen__m) {
+}
+.media-width-orientation(@extremum-min, @break, @orientation) when (@extremum-min = 'min') and (@break = @screen__size) and (@orientation = @landscape) {
+}
+
+
+& when (@media-target = 'mobile'), (@media-target = 'all') {
+    //New
+    @media all and (min-width: @screen__s) {
+        .media-width('min', @screen__s);
+    }
+    @media all and (min-width: @screen__xs) {
+        .media-width('min', @screen__xs);
+    }
+
+    @media only screen and (max-width: (@screen__xs - 1)) {
+        .media-width('max', @screen__xs);
+    }
+
+    @media only screen and (max-width: (@screen__s - 1)) {
+        .media-width('max', @screen__s);
+    }
+
+    @media only screen and (max-width: (@screen__m - 1)) {
+        .media-width('max', @screen__m);
+    }
+
+    @media only screen and (max-width: @screen__m) {
+        .media-width('max', (@screen__m + 1));
+    }
+    // News medias
+    @media all and (min-width: @screen__xs) and (max-width: @screen__s) {
+        .media-width-range('min', 'max', @screen__xs, @screen__s);
+    }
+    @media all and (min-width: @screen__xs) and (max-width: (@screen__m - 1)) {
+        .media-width-range('min', 'max', @screen__xs, @screen__m);
+    }
+    @media all and (min-width: @screen__xs) and (max-width: (@screen__l - 1)) {
+        .media-width-range('min', 'max', @screen__xs, @screen__l);
+    }
+    @media all and (min-width: @screen__xs) and (max-width: (@screen__xl - 1)) {
+        .media-width-range('min', 'max', @screen__xs, @screen__xl);
+    }
+  
+    @media all and (min-width: @screen__s) and (max-width: (@screen__m - 1)) {
+        .media-width-range('min', 'max', @screen__s, @screen__m);
+    }
+    @media all and (min-width: @screen__s) and (max-width: (@screen__l - 1)) {
+        .media-width-range('min', 'max', @screen__s, @screen__l);
+    }
+    @media all and (min-width: @screen__s) and (max-width: (@screen__xl - 1)) {
+        .media-width-range('min', 'max', @screen__s, @screen__xl);
+    }
+}
+
+//
+//  Style groups for 'desktop' devices
+//  ---------------------------------------------
+
+& when (@media-target = 'desktop'), (@media-target = 'all') {
+
+    @media all and (min-width: @screen__m),
+    print {
+        .media-width('min', @screen__m);
+    }
+
+    @media all and (min-width: (@screen__m + 1)),
+    print {
+        .media-width('min', (@screen__m + 1));
+    }
+
+    @media all and (min-width: @screen__l),
+    print {
+        .media-width('min', @screen__l);
+    }
+
+    @media all and (min-width: @screen__xl),
+    print {
+        .media-width('min', @screen__xl);
+    }
+    
+    //New medias
+    @media only screen and (max-width: (@screen__l - 1)),
+      print {
+        .media-width('max', @screen__l);
+    }
+    @media only screen and (max-width: (@screen__xl - 1)),
+      print {
+        .media-width('max', @screen__xl);
+    }
+  
+    // @media all and (min-width: @screen__xs) and (max-width: (@screen__l - 1)) {
+    //     .media-width-range('min', 'max', @screen__xs, @screen__l);
+    // }
+    // @media all and (min-width: @screen__xs) and (max-width: (@screen__xl - 1)) {
+    //     .media-width-range('min', 'max', @screen__xs, @screen__xl);
+    // }
+
+    // @media all and (min-width: @screen__s) and (max-width: (@screen__l - 1)) {
+    //     .media-width-range('min', 'max', @screen__s, @screen__l);
+    // }
+    // @media all and (min-width: @screen__s) and (max-width: (@screen__xl - 1)) {
+    //     .media-width-range('min', 'max', @screen__s, @screen__xl);
+    // }
+
+    @media all and (min-width: @screen__m) and (max-width: (@screen__l - 1)),
+    print {
+        .media-width-range('min', 'max', @screen__m, @screen__l);
+    }
+    @media all and (min-width: @screen__m) and (max-width: (@screen__xl - 1)), 
+    print {
+        .media-width-range('min', 'max', @screen__m, @screen__xl);
+    }
+    
+  
+    @media all and (min-width: @screen__l) and (max-width: (@screen__xl - 1)),
+    print {
+        .media-width-range('min', 'max', @screen__l, @screen__xl);
+    }
+    
+    @media all and (min-width: @screen__size) and (orientation: @landscape),
+    print {
+        .media-width-orientation('min', @screen__size, @landscape);
+    }
+    @media all and (min-width: @screen__size) and (orientation: @portrait),
+    print {
+        .media-width-orientation('min', @screen__size, @portrait);
+    }
+}
