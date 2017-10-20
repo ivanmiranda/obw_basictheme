@@ -5,7 +5,7 @@
         "php": "~5.5.0|~5.6.0|~7.0.0"
     },
     "type": "magento2-theme",
-    "version": "0.0.2-beta",
+    "version": "0.0.3-beta",
     "license": [
         "CC-BY-NC-ND"
     ],
