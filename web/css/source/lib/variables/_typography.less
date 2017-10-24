@@ -19,17 +19,17 @@
 @icons__font-name: 'icons-blank-theme'; // ToDo UI: we need to rename (it shouldn't use blank theme name) or move icon fonts to blank theme
 
 //  Font families
-@font-family__sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-@font-family__serif: Georgia, 'Times New Roman', Times, serif;
-@font-family__monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+@font-family__sans-serif: 'Montserrat', sans-serif;
+@font-family__serif: 'Montserrat', sans-serif;
+@font-family__monospace: 'Montserrat', sans-serif;
 
 @font-family__base: @font-family__sans-serif;
 
 //  Sizes
-@root__font-size: 62.5%; // Defines ratio between root font size and base font size, 1rem = 10px
-@font-size-ratio__base: 1.4; // Defines ratio of the root font-size to the base font-size
+@root__font-size: 100%; // Defines ratio between root font size and base font size, 1rem = 10px
+@font-size-ratio__base: 1; // Defines ratio of the root font-size to the base font-size
 
-@font-size-unit: rem; // The unit to which most typography values will be converted by default
+@font-size-unit: em; // The unit to which most typography values will be converted by default
 @font-size-unit-ratio: unit(@root__font-size * 16/100); // Ratio of the root font-size to the font-size unit
 @font-size-unit-convert: true; // Controls whether font-size values are converted to the specified font-size unit
 
