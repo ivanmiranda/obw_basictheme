@@ -199,8 +199,8 @@
         }
 
         &-item-title {
-            background: darken(@navigation__background,5%);
-            border: solid darken(@navigation__background,10%);
+            background: darken(@color-primary,5%);
+            border: solid darken(@color-primary,10%);
             border-width: 0 0 1px 1px;
             box-sizing: border-box;
             float: left;
@@ -213,14 +213,14 @@
                 text-decoration: none;
                 &:hover {
                     text-decoration: none;
-                    color: @color-black;
+                    color: @color-white;
                 }
             }
             &.active {
-                background: @color-primary;
+                background: @navigation__background;
                 border-bottom: 0;
                 a {
-                    color: @color-black;
+                    color: @color-white;
                 }
             }
         }
