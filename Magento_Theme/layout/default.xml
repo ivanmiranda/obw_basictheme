@@ -1,71 +1,41 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © 2015 Magento. All rights reserved.
+ * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="store.settings.language" remove="true"/>
-        <!-- Header -->
+        <referenceContainer name="header.panel">
+            <block class="Magento\Framework\View\Element\Html\Links" name="header.links">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">header links</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
         <referenceBlock name="logo">
             <arguments>
                 <argument name="logo_file" xsi:type="string">images/logo.png</argument>
-                <argument name="logo_img_width" xsi:type="number">100</argument>
-                <argument name="logo_img_height" xsi:type="number">40</argument>
+                <argument name="logo_img_width" xsi:type="number">148</argument>
+                <argument name="logo_img_height" xsi:type="number">43</argument>
             </arguments>
         </referenceBlock>
-        <referenceContainer name="header-wrapper">
-            <container name="content.first.link" htmlClass="content-links-top" htmlTag="div" after="-">
-                <block class="Magento\Framework\View\Element\Html\Links" name="header.links" after="minicart">
-                    <arguments>
-                        <argument name="css_class" xsi:type="string">header links</argument>
-                    </arguments>
-                </block>
-            </container>
-        </referenceContainer>
 
-        <!-- Removing block top links -->
-        <referenceBlock name="register-link" remove="true"/>
-        <referenceBlock name="catalog.compare.link" remove="true"/>
-        <referenceBlock name="invitation_link_top" remove="true"/>
-        
-        <!-- Moving elements of header -->
-        <move element="minicart" destination="content.first.link" before="-"/> <!-- Moving element to new container -->
-        <move element="top.search" destination="content.first.link"/> <!-- Moving element to new container -->
-        <move element="top.container" destination="header.container" after="-"/> <!-- Moving inner header container -->
-        <move element="navigation.sections" destination="header.container" after="-"/> <!-- Moving inner header container -->
-        <!-- Footer -->
-        <referenceContainer name="footer-container">
-            <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer container">
-                <container name="footer-top" label="Footer Top" htmlTag="div" htmlClass="footer-top page-main">
-                    <block class="Magento\Cms\Block\Block" name="block-footertop">
-                        <arguments>
-                            <argument name="block_id" xsi:type="string">block-footertop</argument>
-                        </arguments>
-                    </block>
-                </container>
-                <container name="footer-left" label="Footer Center" htmlTag="div" htmlClass="footer-left page-main" after="footer-top">
-                    <block class="Magento\Cms\Block\Block" name="block-footercenter">
-                        <arguments>
-                            <argument name="block_id" xsi:type="string">block-footerleft</argument>
-                        </arguments>
-                    </block>
-                </container>
-                <container name="footer-right" label="Footer Center" htmlTag="div" htmlClass="footer-right page-main" after="footer-top">
-                    <block class="Magento\Cms\Block\Block" name="block-footercenter">
-                        <arguments>
-                            <argument name="block_id" xsi:type="string">block-footerright</argument>
-                        </arguments>
-                    </block>
-                </container>
-                <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>
-                <block class="Magento\Framework\View\Element\Template" name="report.bugs" template="Magento_Theme::html/bugreport.phtml" />
-            </container>
+        <referenceBlock name="top.links">
+            <referenceBlock name="register-link" remove="true" />           <!--for Create Account Link-->
+            <referenceBlock name="authorization-link" remove="true" />      <!--for Sign In Link  -->
+            <referenceBlock name="wish-list-link" remove="true" />          <!--for WishList Link-->
+            <referenceBlock name="my-account-link" remove="true" />         <!--for My Account Link-->
+            <referenceBlock name="catalog.compare.link" remove="true"/>
+            <referenceBlock name="invitation_link_top" remove="true"/>
+        </referenceBlock>
+
+        <referenceContainer name="footer">
+            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer_links" template="Magento_Store::switch/stores.phtml"/>
         </referenceContainer>
-        
+        <referenceBlock name="report.bugs" remove="true"/>
+        <move element="copyright" destination="before.body.end"/>
 
         <!-- Removing block general -->
         <referenceBlock name="report.bugs" remove="true"/>
@@ -73,5 +43,6 @@
         <referenceBlock name="wishlist_sidebar" remove="true"/>
         <referenceBlock name="catalog.compare.sidebar" remove="true"/>
         <referenceBlock name="sale.reorder.sidebar" remove="true"/>
+
     </body>
 </page>
