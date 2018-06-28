@@ -2,7 +2,7 @@
     "name": "obw/basictheme",
     "description": "Objectwave's default frontend theme",
     "type": "magento2-theme",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "license": [
         "CC-BY-NC-ND"
     ],
